@@ -26,7 +26,7 @@ class PublicIngredientsAPITests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-class PrivateTagsAPITests(TestCase):
+class PrivateIngredientsAPITests(TestCase):
     """Test the private ingrdeients API"""
 
     def setUp(self):
@@ -67,7 +67,7 @@ class PrivateTagsAPITests(TestCase):
 
     def test_create_ingredient_successful(self):
         """Test creating a new ingredient"""
-        payload = {'name': 'Test ingredient'}
+        payload = {'name': 'ingredient'}
         self.client.post(INGREDIENTS_URL, payload)
 
         exists = Ingredient.objects.filter(
